@@ -1,6 +1,9 @@
 angular.module('zetta').factory('zettaShared', ['$http', '$state', 'navigator', function($http, $state, navigator) {
   
-  $http.defaults.headers.common.Accept = 'application/vnd.siren.zetta+json';
+  var zettaMediaType = 'application/vnd.siren.zetta+json';
+  var zettaRels = 'http://rels.zettajs.io/';
+
+  $http.defaults.headers.common.Accept = zettaMediaType;
   
   var state = {
     servers: [],
@@ -97,7 +100,7 @@ angular.module('zetta').factory('zettaShared', ['$http', '$state', 'navigator', 
 
 
     var objectStreamLinks = deviceData.links.filter(function(link) {
-      return link.rel.indexOf('http://rels.zettajs.io/object-stream') !== -1;
+      return link.rel.indexOf(zettaRels + 'object-stream') !== -1;
     });
 
     if (objectStreamLinks.length) {
@@ -183,7 +186,7 @@ angular.module('zetta').factory('zettaShared', ['$http', '$state', 'navigator', 
       }
 
       var serverLinks = data.links.filter(function(link) {
-        return link.rel.indexOf('http://rels.zettajs.io/server') !== -1 || link.rel.indexOf('http://rels.zettajs.io/peer') !== -1;
+        return link.rel.indexOf(zettaRels + 'server') !== -1 || link.rel.indexOf(zettaRels + 'peer') !== -1;
       });
 
       serverLinks.forEach(function(peer) {
