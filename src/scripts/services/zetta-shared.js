@@ -1,7 +1,7 @@
 angular.module('zetta').factory('zettaShared', ['$http', '$state', 'navigator', function($http, $state, navigator) {
   
   var zettaMediaType = 'application/vnd.siren.zetta+json';
-  var zettaRels = 'http://rels.zettajs.io/';
+  var zettaRels = 'http://rels.zettaapi.org/';
 
   $http.defaults.headers.common.Accept = zettaMediaType;
   
