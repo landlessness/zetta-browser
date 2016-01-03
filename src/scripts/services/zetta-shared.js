@@ -1,4 +1,7 @@
 angular.module('zetta').factory('zettaShared', ['$http', '$state', 'navigator', function($http, $state, navigator) {
+  
+  $http.defaults.headers.common.Accept = 'application/vnd.siren.zetta+json';
+  
   var state = {
     servers: [],
     root: null,
